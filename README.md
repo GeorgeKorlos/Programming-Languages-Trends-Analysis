@@ -10,16 +10,17 @@ You can either use the provided `QueryResults.csv` file or obtain fresh data by 
 ### SQL Query
 
 ```sql
-SELECT dateadd(month, datediff(month, 0, q.CreationDate), 0) AS m, 
-       TagName, 
-       COUNT(*) AS post_count
-FROM PostTags pt
-JOIN Posts q ON q.Id = pt.PostId
-JOIN Tags t ON t.Id = pt.TagId
-WHERE TagName IN ('java','c','c++','python','c#','javascript','assembly','php','perl','ruby','visual basic','swift','r','object-c','scratch','go','swift','delphi')
-AND q.CreationDate < dateadd(month, datediff(month, 0, getdate()), 0)
-GROUP BY dateadd(month, datediff(month, 0, q.CreationDate), 0), TagName
-ORDER BY dateadd(month, datediff(month, 0, q.CreationDate), 0)
+       SELECT dateadd(month, datediff(month, 0, q.CreationDate), 0) AS m, 
+              TagName, 
+              COUNT(*) AS post_count
+       FROM PostTags pt
+       JOIN Posts q ON q.Id = pt.PostId
+       JOIN Tags t ON t.Id = pt.TagId
+       WHERE TagName IN ('java','c','c++','python','c#','javascript','assembly','php','perl','ruby','visual basic','swift','r','object-c','scratch','go','swift','delphi')
+       AND q.CreationDate < dateadd(month, datediff(month, 0, getdate()), 0)
+       GROUP BY dateadd(month, datediff(month, 0, q.CreationDate), 0), TagName
+       ORDER BY dateadd(month, datediff(month, 0, q.CreationDate), 0)
+```
 
 ## Prerequisites
 
@@ -28,8 +29,10 @@ ORDER BY dateadd(month, datediff(month, 0, q.CreationDate), 0)
 - Matplotlib
 
 You can install the required libraries using pip:
+
 ```bash
 pip install pandas matplotlib
+```
 
 ## How to Run
 
