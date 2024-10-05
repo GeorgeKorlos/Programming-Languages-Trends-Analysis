@@ -21,3 +21,25 @@ AND q.CreationDate < dateadd(month, datediff(month, 0, getdate()), 0)
 GROUP BY dateadd(month, datediff(month, 0, q.CreationDate), 0), TagName
 ORDER BY dateadd(month, datediff(month, 0, q.CreationDate), 0)
 
+## Prerequisites
+
+- Python 3.x
+- Pandas
+- Matplotlib
+
+You can install the required libraries using pip:
+```bash
+pip install pandas matplotlib
+
+## How to Run
+
+1. Clone the repository or download the notebook file.
+2. Place the QueryResults.csv file in the same directory as the notebook.
+3. Open the notebook in Jupyter Notebook or Jupyter Lab.
+4. Execute the cells to analyze the programming languages data.
+
+## Features 
+
+- Data exploration and cleaning
+- Data visualization using Matplotlib
+- Analysis of trends in programming languages over time
